@@ -98,7 +98,7 @@ class DiffusionBattery(Battery):
         return new_charge_curve
 
     def compute_current(self, drive_pot, charge_curve):
-        """Get influx by running a timestep computation on charge_curve."""
+        """Get current by running a timestep computation on charge_curve."""
         return np.sum(self.compute_charge_curve(drive_pot, charge_curve)) - np.sum(charge_curve)
 
     def compute_ocp(self, drive_pot, charge_curve):
@@ -109,7 +109,7 @@ class DiffusionBattery(Battery):
         """Get function calc_current."""
 
         def calc_current(drive_pot):
-            """Calculate influx given drive potential."""
+            """Calculate current given drive potential."""
             new_charge_curve = charge_curve.copy()
             new_charge_curve[0] = drive_pot
             return self.compute_current(drive_pot, new_charge_curve)
