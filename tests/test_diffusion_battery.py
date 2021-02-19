@@ -3,10 +3,11 @@
 import pytest
 import numpy as np
 
+from .context import battery
 from battery.diffusion_battery import DiffusionBattery
 
 
-@pytest.skip()
+@pytest.mark.skip()
 def test_impulse_diffusion():
     """Apply potential for one step and test diffusion."""
     bat = DiffusionBattery()
@@ -24,4 +25,3 @@ def test_get_driver_for_target_current():
     # Make projection; this should be close to target_val
     projected_ocp = bat.get_calc_ocp(bat.charge_curve)(drive_pot)
     assert round(float(target_ocp), 8) == round(projected_ocp, 8)
-

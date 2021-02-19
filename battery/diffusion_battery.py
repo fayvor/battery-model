@@ -3,9 +3,9 @@
 import numpy as np
 import math
 
-from battery import Battery
-from metric import Charge
-import config
+from .battery import Battery
+from .metric import Charge
+from . import config
 
 
 class DiffusionBattery(Battery):

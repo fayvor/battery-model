@@ -2,7 +2,7 @@
 import numpy as np
 from collections import namedtuple
 
-from config import *
+from .config import *
 
 # Display params
 PLOT_ROWS = 2
